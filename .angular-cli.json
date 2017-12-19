@@ -19,7 +19,14 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css", 
+        "../node_modules/font-awesome/css/font-awesome.css",
+        "assets/css/components.css", 
+        "assets/css/layout3.css", 
+        "assets/css/default.css", 
+        "assets/css/app.css",
+        "assets/css/ng-pick-datetime.css",
+        "assets/css/tooltip.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

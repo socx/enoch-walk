@@ -1,0 +1,8 @@
+{
+    "app-base-url" : "http://api-eliotportal-staging.azurewebsites.net/api",
+    "api-base-url" : "http://api-eliotportal-staging.azurewebsites.net/api",
+    "api-doc-url" : "http://api-eliotportal-staging.azurewebsites.net/Help",
+    "empty-shock-data-text" : "No shock data at this time",
+    "empty-customer-data-text" : "No customer data at this time",
+    "no-permission-message" : "You do not have permissions to view any pages in this application. Please contact the administrator for more"
+}

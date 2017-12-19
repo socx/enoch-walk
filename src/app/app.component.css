@@ -1,0 +1,16 @@
+.page-wrapper .page-wrapper-middle {
+  background: url('../assets/img/bg15.jpg');
+  background-size: cover;
+  width: 100%;
+  display: table-cell;
+  height: 100%;
+}
+
+
+@media (min-width: 992px) {
+  .container-fluid {
+      padding-left: 15px !important;
+      padding-right: 15px !important;
+  }
+}
+

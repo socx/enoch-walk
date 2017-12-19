@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  
+  isLoginPage : boolean;
+  showHeader : boolean  = false;
+
+  constructor(router: Router) {
+    router.events
+    .subscribe((routeSnapshot:any) =>  {
+        this.isLoginPage = routeSnapshot.url === '/'
+        this.showHeader = (routeSnapshot.url !== '/');
+    });
+  }
 }
