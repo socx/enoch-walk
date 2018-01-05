@@ -50,11 +50,8 @@ postObservable(url : string, body: Object, useToken: boolean): Observable<Respon
     let options = new RequestOptions({ headers: headers });
     let response = this.http
                         .post(url, body, options)
-                        .map((res:Response) => {
-                            if(res.ok !== true) {
-                                return Observable.throw(new Error(this.constants.ERROR_MESSAGE_SERVER));   
-                            }                                     
-                            return res.json();
+                        .map((res:Response) => {             
+                          return res.ok === true ? res.json() : Observable.throw(new Error(this.constants.ERROR_MESSAGE_SERVER));
                         })                     
                         .catch((error)=> {
                             return Observable.throw(error);
