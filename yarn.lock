@@ -3615,6 +3615,10 @@ negotiator@0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
 
+ng-block-ui@^0.9.3:
+  version "0.9.3"
+  resolved "https://registry.yarnpkg.com/ng-block-ui/-/ng-block-ui-0.9.3.tgz#173b74ac784bcca46f2cf7e1877af473bf1ba66e"
+
 ngx-bootstrap@^2.0.0-rc.0:
   version "2.0.0-rc.0"
   resolved "https://registry.yarnpkg.com/ngx-bootstrap/-/ngx-bootstrap-2.0.0-rc.0.tgz#c423117f9a3b36a19514c531b7fd9a56217f060e"

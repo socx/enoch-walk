@@ -11,12 +11,13 @@ export class AppComponent {
   
   isLoginPage : boolean;
   showHeader : boolean  = false;
+  showHeaderRoutes: any = ['', '/user', '/user/login'];
 
   constructor(router: Router) {
     router.events
     .subscribe((routeSnapshot:any) =>  {
         this.isLoginPage = routeSnapshot.url === '/'
-        this.showHeader = (routeSnapshot.url !== '/');
+        this.showHeader = (this.showHeaderRoutes.indexOf(routeSnapshot.url) <= -1);
     });
   }
 }
