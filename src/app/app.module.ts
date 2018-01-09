@@ -13,6 +13,11 @@ import { SharedModule } from './shared/shared.module';
 import { UserComponent } from './user/user.component';
 import { LoginComponent } from './user/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Constants } from './shared/constants';
+import { AuthService } from './shared/services/auth.service';
+import { HttpClientService } from './shared/services/http-client.service';
+import { KitchenSinkService } from './shared/services/kitchen-sink.service';
+import { HttpModule } from '@angular/http';
 
 
 @NgModule({
@@ -24,16 +29,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LoginComponent
   ],
   imports: [
-    AppRoutingModule,
+  AppRoutingModule,
     BrowserModule,
     BlockUIModule,
     CollapseModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    SharedModule
+    SharedModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [Constants, AuthService, HttpClientService, KitchenSinkService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

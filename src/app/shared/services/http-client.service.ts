@@ -39,6 +39,10 @@ createAuthorizationHeader(addToken :boolean) {
 getObservable(url : string, useToken: boolean): Observable<Response> {
     let headers = this.createAuthorizationHeader(useToken);
     let options = new RequestOptions({ headers: headers });
+    if(this.constants.TEST_MODE) {
+      debugger;
+      return this.kitchenSinkService.getObservable(url);
+    }
     return this.http
                 .get(url, options)
                 .map((res:Response) => { return res.json(); })                          
@@ -48,6 +52,10 @@ getObservable(url : string, useToken: boolean): Observable<Response> {
 postObservable(url : string, body: Object, useToken: boolean): Observable<Response> {
     let headers = this.createAuthorizationHeader(useToken);
     let options = new RequestOptions({ headers: headers });
+    if(this.constants.TEST_MODE) {
+      debugger;
+      return this.kitchenSinkService.getObservable(url);
+    }
     let response = this.http
                         .post(url, body, options)
                         .map((res:Response) => {             

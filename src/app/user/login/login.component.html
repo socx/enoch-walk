@@ -47,7 +47,6 @@
         <a href="javascript:;" (click)="onForgotPasswordClicked()" *ngIf="!isAuthenticating"> Forgot password </a>
         <button type="submit" class="btn green pull-right"
             [disabled]="!loginForm.valid"
-            (click)="onLoginClicked()"
         > Login </button>
       </div>
   </form>

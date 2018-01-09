@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { NgForm, FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { HttpClientService } from '../../shared/services/http-client.service';
+import { AuthService } from '../../shared/services/auth.service';
+import { KitchenSinkService } from '../../shared/services/kitchen-sink.service';
+import { Constants } from '../../shared/constants';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +21,15 @@ export class LoginComponent implements OnInit {
   private login: any = {email: null, password: null};
   private isAuthenticating: boolean;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    // private activatedRoute : ActivatedRoute,
+    private constants: Constants,
+    private authService: AuthService,
+    private httpClientService: HttpClientService,
+    // private kitchenSinkService: KitchenSinkService
+  ) { }
 
   ngOnInit() {
     this.loginForm = this.buildLoginForm();
@@ -28,12 +41,44 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  onLogin(form) {
-    console.log('logged in')
+handleError(error){
+    this.blockUI.stop();
+    if (error.status === this.constants.ERROR_401) {   
+        this.authService.logOut();     
+        this.router.navigate(['/']);
+    } else {
+        let errorJSON = JSON.parse(error.text())
+        this.error = errorJSON && errorJSON.Message ? errorJSON.Message : error.statusText;
+    }
+  }
+onLogin(form) {
+    this.resetMessages();
+    this.blockUI.start('Authenticating...');
+    this.authService.logOut();
+    const url = `${this.constants.API_BASE_URI}/user/login`;
+    this.httpClientService
+        .postObservable(url, form, true)
+        .subscribe(
+            (response) =>  {
+                this.blockUI.stop();
+                if(response.ok) {
+                  this.message = `login successful`;
+                }
+                else{
+                  this.error = response["Message"];
+                }
+            },
+            (error) => { this.handleError(error); }
+        );
+            
   }
 
   onForgotPasswordClicked() {
+  }
 
+  resetMessages(){
+      this.message = '';
+      this.error = '';
   }
 
 }
