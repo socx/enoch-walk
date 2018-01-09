@@ -62,7 +62,7 @@ onLogin(form) {
             (response) =>  {
                 this.blockUI.stop();
                 if(response.ok) {
-                  this.message = `login successful`;
+                  this.router.navigate(['/invoice'])
                 }
                 else{
                   this.error = response["Message"];

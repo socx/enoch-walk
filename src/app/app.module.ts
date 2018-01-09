@@ -18,6 +18,7 @@ import { AuthService } from './shared/services/auth.service';
 import { HttpClientService } from './shared/services/http-client.service';
 import { KitchenSinkService } from './shared/services/kitchen-sink.service';
 import { HttpModule } from '@angular/http';
+import { InvoiceComponent } from './invoice/invoice.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { HttpModule } from '@angular/http';
     HeaderComponent,
     FooterComponent,
     UserComponent,
-    LoginComponent
+    LoginComponent,
+    InvoiceComponent
   ],
   imports: [
   AppRoutingModule,
