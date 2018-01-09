@@ -16,7 +16,7 @@ export class AppComponent {
   constructor(router: Router) {
     router.events
     .subscribe((routeSnapshot:any) =>  {
-        this.isLoginPage = routeSnapshot.url === '/'
+        this.isLoginPage = (this.showHeaderRoutes.indexOf(routeSnapshot.url) > -1)
         this.showHeader = (this.showHeaderRoutes.indexOf(routeSnapshot.url) <= -1);
     });
   }
