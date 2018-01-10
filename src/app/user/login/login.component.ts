@@ -74,6 +74,7 @@ onLogin(form) {
   }
 
   onForgotPasswordClicked() {
+    this.router.navigate(['/user/forgot-password'])
   }
 
   resetMessages(){

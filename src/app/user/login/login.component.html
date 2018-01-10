@@ -44,7 +44,8 @@
       <div class="create-account">
       </div>
       <div class="form-actions">
-        <a href="javascript:;" (click)="onForgotPasswordClicked()" *ngIf="!isAuthenticating"> Forgot password </a>
+        <a (click)="onForgotPasswordClicked()" *ngIf="!isAuthenticating"> Forgot password </a>
+        
         <button type="submit" class="btn green pull-right"
             [disabled]="!loginForm.valid"
         > Login </button>

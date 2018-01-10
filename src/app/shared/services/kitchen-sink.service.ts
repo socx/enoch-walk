@@ -20,6 +20,7 @@ export class KitchenSinkService {
     
     switch(url){
       case `${this.constants.API_BASE_URI}/user/login`:
+      case `${this.constants.API_BASE_URI}/user/forgot-password`:
         response.status = 200;
         response.ok = true;
         response.type = ResponseType.Default;

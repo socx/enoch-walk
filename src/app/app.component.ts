@@ -11,7 +11,9 @@ export class AppComponent {
   
   isLoginPage : boolean;
   showHeader : boolean  = false;
-  showHeaderRoutes: any = ['', '/user', '/user/login'];
+  showHeaderRoutes: any = ['',
+    '/user', '/user/login', '/user/forgot-password'
+  ];
 
   constructor(router: Router) {
     router.events

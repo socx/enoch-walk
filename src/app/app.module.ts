@@ -19,6 +19,7 @@ import { HttpClientService } from './shared/services/http-client.service';
 import { KitchenSinkService } from './shared/services/kitchen-sink.service';
 import { HttpModule } from '@angular/http';
 import { InvoiceComponent } from './invoice/invoice.component';
+import { ForgotPasswordComponent } from './user/forgot-password/forgot-password.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { InvoiceComponent } from './invoice/invoice.component';
     FooterComponent,
     UserComponent,
     LoginComponent,
-    InvoiceComponent
+    InvoiceComponent,
+    ForgotPasswordComponent
   ],
   imports: [
   AppRoutingModule,
