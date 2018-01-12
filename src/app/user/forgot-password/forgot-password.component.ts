@@ -59,7 +59,7 @@ handleError(error){
               (response) =>  {
                   this.blockUI.stop()
                   if(response.ok) {
-                    this.message = 'Please check your email and follow instructions' ;
+                    this.message = this.constants.FORGOT_PASSWORD_REQUEST_CONFIRM_MESSAGE;
                   }
                   else{
                     this.error = response["Message"];
