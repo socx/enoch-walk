@@ -49,7 +49,6 @@ handleError(error){
     this.router.navigate(['/user/login']);
   }
   onForgotPassword(form) {
-      console.log('dsds')
       this.resetMessages();
       this.blockUI.start('Sending...');
       const url = `${this.constants.API_BASE_URI}/user/forgot-password`;

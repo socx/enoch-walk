@@ -15,5 +15,11 @@
       "es2017",
       "dom"
     ]
+    // "baseUrl": "src",
+    // "paths": {
+    //   "@app/*": ["app/*"],
+    //   "@components/*": ["./app/shared/components*"],
+    //   "@invoice/*": ["./app/invoice/*"]
+    // }
   }
 }

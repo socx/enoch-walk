@@ -20,6 +20,7 @@ import { KitchenSinkService } from './shared/services/kitchen-sink.service';
 import { HttpModule } from '@angular/http';
 import { InvoiceComponent } from './invoice/invoice.component';
 import { ForgotPasswordComponent } from './user/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './user/reset-password/reset-password.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { ForgotPasswordComponent } from './user/forgot-password/forgot-password.
     UserComponent,
     LoginComponent,
     InvoiceComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    ResetPasswordComponent
   ],
   imports: [
   AppRoutingModule,
