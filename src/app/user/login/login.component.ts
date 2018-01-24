@@ -62,7 +62,7 @@ onLogin(form) {
             (response) =>  {
                 this.blockUI.stop();
                 if(response.ok) {
-                  this.router.navigate(['/invoice'])
+                  this.router.navigate(['/invoices'])
                 }
                 else{
                   this.error = response["Message"];

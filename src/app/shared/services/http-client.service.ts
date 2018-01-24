@@ -64,5 +64,16 @@ postObservable(url : string, body: Object, useToken: boolean): Observable<Respon
                         });
     return response;
   }
-
+  
+  getJSON(url) {
+    debugger
+    return this.http.get(url)
+         .map(data => {
+           return data;
+         }, err => {
+           if (err) {
+             return err.json();
+           }
+         });
+     }
 }

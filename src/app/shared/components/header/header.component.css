@@ -6,7 +6,7 @@
 }
 
 .page-header .page-header-menu {
-  background: #1D965D;
+  background: #0198E1;
 }
 
 .page-header .page-header-menu .hor-menu .navbar-nav > li > a,
@@ -55,6 +55,6 @@
 @media (max-width: 991px){
   .page-header .page-header-menu .hor-menu .navbar-nav > li.open > a, .page-header .page-header-menu .hor-menu .navbar-nav > li.open > a:hover, .page-header .page-header-menu .hor-menu .navbar-nav > li.active > a, .page-header .page-header-menu .hor-menu .navbar-nav > li.active > a:hover, .page-header .page-header-menu .hor-menu .navbar-nav > li.current > a, .page-header .page-header-menu .hor-menu .navbar-nav > li.current > a:hover {
       color: #fff !important;
-      background: #1D965D !important;
+      background: #0198E1 !important;
   }
 }

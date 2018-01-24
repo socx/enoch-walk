@@ -4,9 +4,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
 import { LoginComponent } from './user/login/login.component';
-import { InvoiceComponent } from './invoice/invoice.component';
 import { ForgotPasswordComponent } from './user/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './user/reset-password/reset-password.component';
+import { InvoicesComponent } from './invoices/invoices.component';
+import { InvoiceListComponent } from './invoices/invoice-list/invoice-list.component';
 
 const appRoutes: Routes = [
   { path : '', redirectTo: 'user/login', pathMatch: 'full' },
@@ -16,7 +17,10 @@ const appRoutes: Routes = [
     { path : 'reset-password', component: ResetPasswordComponent },
     { path : 'reset-password/:token', component: ResetPasswordComponent }
   ]},
-  { path : 'invoice', component : InvoiceComponent },
+  { path : 'invoices', component: InvoicesComponent, children:[
+    { path : '', component: InvoiceListComponent }
+  ]},
+  { path : 'invoice', redirectTo: 'invoices' },
   { path : '**', redirectTo: 'user/login' }
 ];
 

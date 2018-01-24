@@ -340,7 +340,7 @@ label {
     background: #eee
 }
 ::-webkit-scrollbar-thumb {
-    background: #3CB371
+    background: #0198E1
 }
 /***SCrollbar Styles End***/
 
@@ -375,9 +375,9 @@ label {
 .btn.btn-outline.dark:hover, .btn.btn-outline.dark:active, 
 .btn.btn-outline.dark:active:hover, .btn.btn-outline.dark:active:focus, 
 .btn.btn-outline.dark:focus, .btn.btn-outline.dark.active {
-    border-color: #3CB371;
+    border-color: #0198E1;
     color: #FFFFFF;
-    background-color: #3CB371; 
+    background-color: #0198E1; 
 }
 
 
@@ -597,7 +597,7 @@ body {
     scrollbar-3dlight-color: transparent;
     scrollbar-highlight-color: transparent;
     scrollbar-track-color: transparent;
-    scrollbar-arrow-color: #3CB371;
+    scrollbar-arrow-color: #0198E1;
     scrollbar-shadow-color: transparent;
     overflow-x: hidden;
     -ms-overflow-style: -ms-autohiding-scrollbar;

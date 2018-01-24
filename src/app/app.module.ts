@@ -18,9 +18,10 @@ import { AuthService } from './shared/services/auth.service';
 import { HttpClientService } from './shared/services/http-client.service';
 import { KitchenSinkService } from './shared/services/kitchen-sink.service';
 import { HttpModule } from '@angular/http';
-import { InvoiceComponent } from './invoice/invoice.component';
 import { ForgotPasswordComponent } from './user/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './user/reset-password/reset-password.component';
+import { InvoicesComponent } from './invoices/invoices.component';
+import { InvoiceListComponent } from './invoices/invoice-list/invoice-list.component';
 
 
 @NgModule({
@@ -30,9 +31,10 @@ import { ResetPasswordComponent } from './user/reset-password/reset-password.com
     FooterComponent,
     UserComponent,
     LoginComponent,
-    InvoiceComponent,
     ForgotPasswordComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    InvoicesComponent,
+    InvoiceListComponent
   ],
   imports: [
   AppRoutingModule,

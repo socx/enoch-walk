@@ -1,0 +1,74 @@
+
+<div class="col-md-12">
+  <div class="portlet light " *blockUI="'invoice-area'">
+      <div class="portlet-title">
+          <div class="caption">
+              <i class="fa fa-file-text-o font-green"></i>
+              <span class="caption-subject font-green bold uppercase" > Invoices </span>
+          </div>
+          
+          <div class="actions" >
+              <a class="btn btn-outline btn-square btn-sm dark" id="button-invoice-create" placement="left" tooltip (click)="onCreateNew()"  parentName='invoice-create' appSecurableParent><i class="fa fa-plus"></i> </a>
+              <a class="btn btn-outline btn-square btn-sm dark" id="invoice-list-page" placement="left" tooltip ><i class="fa fa-question"></i> </a>
+          </div>
+      </div>
+      
+      <div class="portlet-body">
+          
+          <div class="table-frozen-container">
+              <table class="thead table table-striped">
+                  <tr *ngIf="invoices" >
+                      <th class="" *ngFor="let column of invoices.Header" >
+                         <i></i> 
+                          {{ kitchenSinkService.getFieldCaption(column) }}
+                      </th>
+                       <th class="action-dropdown"> </th>
+                  </tr>                     
+              </table>
+               <div class="table-frozen-body " (scroll)="onScroll($event)" id='frozendiv'>
+                  <table *ngIf="(invoices && invoices.hasOwnProperty('Results') && invoices.Results.length < 1)" >
+                      <tr>
+                          <td colspan="invoices.Header.length"> No invoices</td>
+                      </tr>
+                  </table>
+                  <table class="table table-striped table-bordered table-hover"  #frozendivtable
+                      *ngIf="(invoices && invoices.hasOwnProperty('Results') && invoices.Results.length > 0)" >
+                      <tr *ngFor="let invoice of invoices.Results" >
+                          <td 
+                            [title]="kitchenSinkService.getFieldCaption(column)"
+                            *ngFor="let column of invoices.Header"  > 
+                              
+                            <span *ngIf="column.Name !== 'Status'">
+                              {{ kitchenSinkService.formatField(invoice,column) }}
+                            </span>
+                            <span *ngIf="column.Name === 'Status'" [className]="kitchenSinkService.getStatusClassName(invoice[column.Name])" > 
+                              {{ kitchenSinkService.formatField(invoice,column) }}
+                            </span>
+                          </td>
+                          <td class="action-dropdown pull-center" >
+                              <div class="btn-group" dropdown (onOpen)="dropDownOpen($event)" >
+                                  <button class="btn btn-xs green dropdown-toggle align-right" type="button" data-toggle="dropdown" aria-expanded="false" dropdown-open> Actions
+                                      <i class="fa fa-angle-down"></i>
+                                  </button>
+                                  <ul class="dropdown-menu" invoice="menu">
+                                      <li parentName="invoice-edit" >
+                                          <a (click)="onEdit(invoice)" >
+                                              <i class="fa fa-pencil"></i> Edit </a>
+                                      </li>
+                                      <li parentName="invoice-edit" >
+                                          <a (click)="onCopy(invoice)" >
+                                              <i class="fa fa-copy"></i> Copy </a>
+                                      </li>
+                                      <li parentName="invoice-delete" >
+                                          <a (click)="onDelete(invoice)" >
+                                              <i class="fa fa-remove"></i> Delete </a>
+                                      </li>
+                                  </ul>
+                              </div>
+                          </td>
+                      </tr>
+                  </table>
+              </div>
+      </div>
+  </div>
+</div>
