@@ -1,4 +1,5 @@
 
+
 <div class="col-md-12">
   <div class="portlet light " *blockUI="'invoice-area'">
       <div class="portlet-title">
@@ -7,14 +8,19 @@
               <span class="caption-subject font-green bold uppercase" > Invoices </span>
           </div>
           
-          <div class="actions" >
-              <a class="btn btn-outline btn-square btn-sm dark" id="button-invoice-create" placement="left" tooltip (click)="onCreateNew()"  parentName='invoice-create' appSecurableParent><i class="fa fa-plus"></i> </a>
-              <a class="btn btn-outline btn-square btn-sm dark" id="invoice-list-page" placement="left" tooltip ><i class="fa fa-question"></i> </a>
+          <div class="actions pull-right" >
+              <a class="btn btn-outline btn-square btn-sm dark" id="button-invoice-create" placement="left" tooltip (click)="onAdd()"  parentName='invoice-create' appSecurableParent><i class="fa fa-plus"></i> Create Invoice</a>
           </div>
       </div>
       
       <div class="portlet-body">
           
+        
+        <div class="actions" >
+          <a class="btn btn-square btn-sm dark" id="button-invoice-preview" placement="left" tooltip (click)="onAdd()"  parentName='invoice-preview' appSecurableParent> Unpaid</a>
+          <a class="btn btn-outline btn-square btn-sm dark" id="button-invoice-save-continue" placement="left" tooltip (click)="onAdd()"  parentName='invoice-save-continue' appSecurableParent> Draft</a>
+          <a class="btn btn-outline btn-square btn-sm dark" id="button-invoice-save-continue" placement="left" tooltip (click)="onAdd()"  parentName='invoice-save-continue' appSecurableParent> All</a>
+        </div>
           <div class="table-frozen-container">
               <table class="thead table table-striped">
                   <tr *ngIf="invoices" >

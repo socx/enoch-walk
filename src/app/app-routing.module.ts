@@ -8,6 +8,7 @@ import { ForgotPasswordComponent } from './user/forgot-password/forgot-password.
 import { ResetPasswordComponent } from './user/reset-password/reset-password.component';
 import { InvoicesComponent } from './invoices/invoices.component';
 import { InvoiceListComponent } from './invoices/invoice-list/invoice-list.component';
+import { InvoiceAddEditComponent } from './invoices/invoice-add-edit/invoice-add-edit.component';
 
 const appRoutes: Routes = [
   { path : '', redirectTo: 'user/login', pathMatch: 'full' },
@@ -18,7 +19,9 @@ const appRoutes: Routes = [
     { path : 'reset-password/:token', component: ResetPasswordComponent }
   ]},
   { path : 'invoices', component: InvoicesComponent, children:[
-    { path : '', component: InvoiceListComponent }
+    { path : '', component: InvoiceListComponent },
+    { path : 'add', component: InvoiceAddEditComponent },
+    { path : ':id/edit', component: InvoiceAddEditComponent }
   ]},
   { path : 'invoice', redirectTo: 'invoices' },
   { path : '**', redirectTo: 'user/login' }

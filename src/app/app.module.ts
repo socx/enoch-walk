@@ -23,6 +23,7 @@ import { ResetPasswordComponent } from './user/reset-password/reset-password.com
 import { InvoicesComponent } from './invoices/invoices.component';
 import { InvoiceListComponent } from './invoices/invoice-list/invoice-list.component';
 import { ModalModule } from './bootstrap-modal/bootstrap-modal.module';
+import { InvoiceAddEditComponent } from './invoices/invoice-add-edit/invoice-add-edit.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { ModalModule } from './bootstrap-modal/bootstrap-modal.module';
     ForgotPasswordComponent,
     ResetPasswordComponent,
     InvoicesComponent,
-    InvoiceListComponent
+    InvoiceListComponent,
+    InvoiceAddEditComponent
   ],
   imports: [
   AppRoutingModule,

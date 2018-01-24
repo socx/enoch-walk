@@ -1,0 +1,167 @@
+
+<div class="col-md-12">
+  <div class="portlet light " *blockUI="'invoice-area'">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-file-text-o font-green"></i>
+            <span class="caption-subject font-green bold uppercase" > New Invoice </span>
+        </div>
+        
+        <div class="actions" >
+          <a class="btn btn-outline btn-square btn-sm dark" id="button-invoice-preview" placement="left" tooltip (click)="onAdd()"  parentName='invoice-preview' appSecurableParent><i class="fa fa-plus"></i> Preview</a>
+          <a class="btn btn-outline btn-square btn-sm dark" id="button-invoice-save-continue" placement="left" tooltip (click)="onAdd()"  parentName='invoice-save-continue' appSecurableParent><i class="fa fa-plus"></i> Save & Continue</a>
+        </div>
+    </div>
+    <div class="portlet-body">
+      <div class="invoice-container">
+        <form class="" [formGroup]="invoiceForm" novalidate (ngSubmit)="onInvoice(invoiceForm.value)" >
+        <!--row-->
+        <div class="row">
+            <div class="col-md-6 col-sm-12 col-xs-12">
+              This is here
+            </div>
+            <!--/span-->
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">Invoice Number</label>
+                    <!-- <div class="input-group">
+                      <span class="input-group-addon">
+                        #
+                      </span>
+                      <input type="invoiceNumber" class="form-control input-xs" formControlName="invoiceNumber" />
+                    </div> -->
+                    <div class="input-icon">
+                        <i class="fa fa-hashtag"></i>
+                        <input class="form-control placeholder-no-fix" 
+                          type="text"
+                          maxlength="40"
+                          placeholder="Invoice Number"
+                          formControlName="invoiceNumber"
+                        >
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Payment Terms</label>
+                    <div class="input-icon">
+                        <i class="fa fa-envelope"></i>
+                        <input class="form-control placeholder-no-fix" 
+                          type="text"
+                          maxlength="40"
+                          placeholder="Payment Terms"
+                          formControlName="paymentTerms"
+                        >
+                    </div>
+                </div>
+              </div>
+            <!--/span-->
+        </div>
+        <!--/row-->
+        <!--row-->
+        <div class="row">
+            <div class="col-md-6">
+              This is here
+            </div>
+            <!--/span-->
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">Invoice Date </label>
+                    <div class="input-icon">
+                        <i class="fa fa-calendar"></i>
+                        <input class="form-control placeholder-no-fix" 
+                          type="datetime"
+                          maxlength="40"
+                          placeholder="Invoice Date"
+                          formControlName="invoiceDate"
+                        >
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Payment Date</label>
+                    <div class="input-icon">
+                        <i class="fa fa-calendar-o"></i>
+                        <input class="form-control placeholder-no-fix" 
+                          type="datetime"
+                          maxlength="40"
+                          placeholder="Payment Date"
+                          formControlName="paymentDate"
+                        >
+                    </div>
+                </div>
+              </div>
+            <!--/span-->
+        </div>
+        <!--/row-->
+        <div class="row">
+          <div class="col-md-12">
+            <div class="table-frozen-container">
+              <table class="thead table table-striped">
+                <tr>
+                  <th colspan="4">Item</th>
+                  <th>Quantity</th>
+                  <th>Rate</th>
+                  <th>Amount</th>
+                  <th></th>
+                </tr>                     
+              </table>
+              <div class="table-frozen-body " (scroll)="onScroll($event)" id='frozendiv'>
+                <table *ngIf="(!invoiceItems || invoiceItems.length < 1)" >
+                    <tr>
+                        <td colspan="8"> No invoices</td>
+                    </tr>
+                </table>
+                <table class="table table-striped table-bordered table-hover"  #frozendivtable
+                    *ngIf="(invoiceItems && invoiceItems.length > 0)" >
+                  <tr *ngFor="let invoiceItem of invoiceItems" >
+                    <td colspan="4" title="Item"> <span> {{ invoiceItem.item }} </span> </td>
+                    <td title="Quantity"> <span> {{ invoiceItem.quantity }} </span> </td>
+                    <td title="Rate"> <span> {{ invoiceItem.rate }} </span> </td>
+                    <td title="Amount"> <span> {{ invoiceItem.amount }} </span> </td>
+                    <td>
+                      <a class="btn btn-outline btn-square btn-sm dark" id="button-invoice-item-delete" placement="left" tooltip (click)="removeInvoiceItem(invoiceItem)"  parentName='invoice-preview'>
+                        <i class="fa fa-trash"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="8">
+                        <a class="btn btn-outline btn-square btn-sm dark pull-right" id="button-invoice-item-add" placement="left" tooltip (click)="addInvoiceItem()"  parentName='invoice-preview'>
+                          <i class="fa fa-plus"></i>
+                          Add Item
+                        </a>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        
+      
+        <ul class='nav nav-tabs'>
+          <li [className]="activeTab == 'unpaid' ? 'active' : ''" id='unpaid' page="device-details" appSecurable >
+            <a (click)="onTabClick('unpaid')" data-toggle="tab" aria-expanded="true"> Upaid </a>
+          </li>
+          <li [className]="activeTab == 'draft' ? 'active' : ''" id='draft'>
+            <a (click)="onTabClick('draft')" data-toggle="tab" aria-expanded="true" > Draft </a>
+          </li>
+          <li [className]="activeTab == 'all' ? 'active' : ''" id='all' page="device-details" appSecurable >
+            <a (click)="onTabClick('all')" data-toggle="tab" aria-expanded="true" id='device-details-history' page="device-details" appSecurable> All </a>
+          </li>
+        </ul>
+        <div class="tab-content">
+            <div id='device-details-history' page="device-details" appSecurable >
+    
+            </div>
+            <div id='device-details-' page="device-details" appSecurable >
+              
+            </div>
+        </div>
+
+        </form>
+      </div>
+    </div>
+
+
+  </div>
+</div>
