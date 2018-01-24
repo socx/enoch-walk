@@ -22,6 +22,7 @@ import { ForgotPasswordComponent } from './user/forgot-password/forgot-password.
 import { ResetPasswordComponent } from './user/reset-password/reset-password.component';
 import { InvoicesComponent } from './invoices/invoices.component';
 import { InvoiceListComponent } from './invoices/invoice-list/invoice-list.component';
+import { ModalModule } from './bootstrap-modal/bootstrap-modal.module';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { InvoiceListComponent } from './invoices/invoice-list/invoice-list.compo
     ReactiveFormsModule,
     RouterModule,
     SharedModule,
-    HttpModule
+    HttpModule,
+    ModalModule
   ],
   providers: [Constants, AuthService, HttpClientService, KitchenSinkService],
   bootstrap: [AppComponent]
